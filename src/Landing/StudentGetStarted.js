@@ -23,8 +23,8 @@ const StudentGetStarted = () => {
 
     return (
         <>
-            <div class="text-center">
-            <img src='assets\images\Landing\icon.png' class="center"></img>
+            <div className="text-center">
+            <img src='assets\images\Landing\icon.png' className="center"></img>
             </div>
             <span className="login100-form-title "> Get Started with<br></br> <b>{name}</b></span> <br></br>
             <div className="wrap-input100 validate-input m-b-16" data-validate="Phone is required">
@@ -74,9 +74,13 @@ const StudentGetStarted = () => {
 
 async function checkLogin(username, password, instId, flag, setShow, setMsg, history, setCurrentUser, browser) {
     await API.post('/appLogin', { "username": en(username), "password": en(password), "inst_id": en(instId), "flag": en(flag), "myRecaptcha": en(''), "browser": en(browser.name), "os": en(browser.os), "version": en(browser.version) }).then(res => {
+        console.log(res.data)
+        
         if (res.data.status === 'success') {
             localStorage.setItem("token", JSON.stringify(res.data.token));
             let data = JSON.parse(de(res.data.data));
+            //check
+            console.log("success")
             if (data.role === 'STUDENT') {
                 setCurrentUser(data);
                 if (localStorage.getItem('myExamCart') !== undefined && localStorage.getItem('myExamCart') !== 'undefined' && localStorage.getItem('myExamCart') !== null) {

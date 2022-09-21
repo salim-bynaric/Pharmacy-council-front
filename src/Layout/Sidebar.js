@@ -244,6 +244,11 @@ function Sidebar() {
                                     <div className="sb-nav-link-icon"><i className="fas fa-list-alt"></i></div>
                                     Subject Master
                                 </Link>
+                                {/* Newly Added */}
+                                <Link className="nav-link" to={{ pathname: "/uploadStudyMaterial" }}>
+                                    <div className="sb-nav-link-icon"><i className="fas fa-list-alt"></i></div>
+                                    Upload Study Material
+                                </Link>
 
                                 <Link className="nav-link" to={{ pathname: "/addTest" }}>
                                     <div className="sb-nav-link-icon"><i className="fas fa-list-alt"></i></div>

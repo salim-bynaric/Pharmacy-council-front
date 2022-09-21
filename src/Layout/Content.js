@@ -106,6 +106,8 @@ import Cart from '../Components/Cart/Cart';
 import Txnsuccess from '../Components/Cart/Txnsuccess';
 import Txnfailure from '../Components/Cart/Txnfailure';
 import SubProgramMaster from '../Components/Admin/Masters/SubProgramMaster';
+import StudyMaterial from '../Components/Student/StudyMaterial';
+import UploadStudyMaterial from '../Components/Admin/Masters/UploadStudyMaterial';
 
 
 function Content() 
@@ -220,6 +222,9 @@ function Content()
                             <Route path="/txnsuccess" component={Txnsuccess}/>
                             <Route path="/txnfailure" component={Txnfailure}/>
                             <Route path="/subProgramMaster" component={SubProgramMaster}/>
+                            <Route path="/study-material" component={StudyMaterial}/>
+                            <Route path="/uploadStudyMaterial" component={UploadStudyMaterial}/>
+
 
                             
                         </main>

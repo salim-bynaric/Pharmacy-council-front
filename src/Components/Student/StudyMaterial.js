@@ -5,7 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 const StudyMaterial = () => {
     return (
         <>
-            <div className='col-lg-6'>
+            <div className='col-lg-12'>
                 <div className="card" style={{ "marginTop": "30px" }}>
                     <div className="card-header bg-primary" style={{ color: "white" }}>
                        <h5><center><b>Study Material</b></center></h5>

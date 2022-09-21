@@ -127,15 +127,18 @@ function ExamCard(props) {
   }
 
   useEffect(() => {
-    if ((examMode === 'subjective' || examMode === 'both') && (status === 'over') && props.exam.paper.singleFileUpload && props.exam !== null && props.exam !== undefined && linkOpen) {
-      getCurrentTime(setLinkOpen, props.exam, linkOpen, setExamEndTime, setMaxAllowedTime);
-      let myInterval = setInterval(() => { getCurrentTime(setLinkOpen, props.exam, linkOpen, setExamEndTime, setMaxAllowedTime); }, 30000);
-      //------------------Cleanup-----------------------------------------
-      return () => {
-        clearInterval(myInterval);
+    if(props.exam.paper){
+      if ((examMode === 'subjective' || examMode === 'both') && (status === 'over') && props.exam.paper.singleFileUpload && props.exam !== null && props.exam !== undefined && linkOpen) {
+        getCurrentTime(setLinkOpen, props.exam, linkOpen, setExamEndTime, setMaxAllowedTime);
+        let myInterval = setInterval(() => { getCurrentTime(setLinkOpen, props.exam, linkOpen, setExamEndTime, setMaxAllowedTime); }, 30000);
+        //------------------Cleanup-----------------------------------------
+        return () => {
+          clearInterval(myInterval);
+        }
       }
     }
-  }, [props.exam.paper.singleFileUpload, examMode, status, linkOpen])
+   
+  }, [props.exam.paper, examMode, status, linkOpen])
 
   
 
@@ -196,6 +199,7 @@ function ExamCard(props) {
                   :
                   null
               }
+            <Link to="/study-material"><button className='alert alert-danger' title='To study material'>Go to study material</button></Link>           
             </center>
           </div>
 
